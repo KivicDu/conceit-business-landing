@@ -1,0 +1,194 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: Raleway-Regular;
+    src: url("../Fonts/Raleway-Regular.ttf");
+}
+@font-face {
+    font-family: Raleway-Bold;
+    src: url("../Fonts/Raleway-Bold.ttf");
+}
+
+body {
+    font-family: Raleway-Regular;
+    font-size: 16px;
+    line-height: 30px;
+    color: #777777;
+}
+
+/* ===== NAVBAR STICKY ===== */
+.navbar-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #272727;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-family: Raleway-Regular;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    /* Đặt sẵn border trong suốt để layout không bị dịch chuyển */
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: white;
+    background-color: #ff3c41;
+    /* Không thay đổi font-size hay font-family để tránh layout shift */
+}
+
+.navbar-light .navbar-nav .nav-item.active .nav-link {
+    color: white;
+    background-color: #ff3c41;
+}
+
+.navbar-brand img {
+    height: 55px;
+}
+
+/* ===== CAROUSEL ===== */
+.carousel .carousel-inner img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+/* Trượt ngang mượt - tăng thời gian transition của Bootstrap */
+.carousel-item {
+    transition: transform 0.7s ease-in-out !important;
+}
+
+/* Xoá transition fade nếu có */
+.carousel-fade .carousel-item {
+    transition: none !important;
+}
+
+/* ===== FADE IN SECTION (scroll animation) ===== */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delay cho 3 service blocks */
+.service-delay-1 { transition-delay: 0s; }
+.service-delay-2 { transition-delay: 0.2s; }
+.service-delay-3 { transition-delay: 0.4s; }
+
+/* ===== ABOUT SECTION ===== */
+.title {
+    font-size: 40px;
+    text-align: center;
+    font-family: Raleway-Bold;
+    color: #1b1b1b;
+    letter-spacing: 2px;
+    padding: 60px 0 30px 0;
+}
+
+.about-img {
+    width: 100%;
+}
+
+.about-content h3 {
+    font-size: 26px;
+    font-family: Raleway-Bold;
+    color: #3c3c3c;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 16px;
+    color: #777777;
+    font-family: Raleway-Regular;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+.about-content button {
+    background: none;
+    border: 3px solid #76daff;
+    font-size: 12px;
+    font-family: Raleway-Bold;
+    color: #3c3c3c;
+    padding: 10px 24px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.about-content button:hover {
+    background-color: #76daff;
+    color: #fff;
+}
+
+/* ===== DIVIDER LINE ===== */
+.line {
+    height: 1px;
+    background: #7f7f7f;
+    margin: 20px auto;
+}
+
+/* ===== SERVICE ICONS ===== */
+.service_icon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 6px;
+}
+
+.service_icon i {
+    font-size: 40px;
+    color: #76daff;
+}
+
+.service_content h4 {
+    font-size: 20px;
+    color: #222222;
+    font-family: Raleway-Bold;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.service_content p {
+    font-size: 16px;
+    color: #777777;
+    font-family: Raleway-Regular;
+    line-height: 26px;
+}
+
+.about-service {
+    padding: 20px 0 40px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 992px) {
+    .about-img, .about-content {
+        text-align: center;
+    }
+    .about-content button {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .navbar-light .navbar-brand {
+        width: 50%;
+    }
+    .about-img {
+        display: none;
+    }
+}
