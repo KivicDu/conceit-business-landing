@@ -99,6 +99,13 @@ body {
 
 .about-img {
     width: 100%;
+    text-align: center;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .about-content h3 {
@@ -174,21 +181,146 @@ body {
     padding: 20px 0 40px 0;
 }
 
-/* ===== RESPONSIVE ===== */
-@media screen and (max-width: 992px) {
-    .about-img, .about-content {
+/* ===================================================
+   RESPONSIVE
+   Desktop  : ≥ 992px  → base styles above
+   Tablet   : 768px – 991px
+   Mobile   : < 768px
+=================================================== */
+
+/* ---------- TABLET (768px – 991px) ---------- */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+    /* Slider: giảm chiều cao xuống còn 380px */
+    .carousel .carousel-inner img {
+        max-height: 380px;
+    }
+
+    /* Title About Us: 40px → 32px */
+    .title {
+        font-size: 32px;
+        padding: 44px 0 22px 0;
+    }
+
+    /* About Us: 2 cột, căn giữa text */
+    .about-img,
+    .about-content {
         text-align: center;
+    }
+    .about-content h3 {
+        font-size: 22px;
+    }
+    .about-content p {
+        font-size: 15px;
+        line-height: 27px;
     }
     .about-content button {
         margin-bottom: 20px;
     }
+
+    /* Service: giữ 3 cột, thu nhỏ chữ và icon */
+    .service_icon i {
+        font-size: 30px;
+    }
+    .service_content h4 {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+    .service_content p {
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    /* Navbar logo */
+    .navbar-brand img {
+        height: 44px;
+    }
+    .navbar-light .navbar-nav .nav-link {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
 }
 
-@media screen and (max-width: 700px) {
-    .navbar-light .navbar-brand {
-        width: 50%;
+/* ---------- MOBILE (< 768px) ---------- */
+@media screen and (max-width: 767px) {
+
+    /* Body chữ nhỏ hơn */
+    body {
+        font-size: 14px;
+        line-height: 26px;
     }
+
+    /* Navbar: logo nhỏ lại, hamburger hiện */
+    .navbar-brand img {
+        height: 38px;
+    }
+    .navbar-light .navbar-nav .nav-link {
+        font-size: 13px;
+        padding: 10px 14px;
+        letter-spacing: 0.5px;
+    }
+
+    /* Slider: giảm chiều cao còn 220px */
+    .carousel .carousel-inner img {
+        max-height: 220px;
+    }
+
+    /* Title About Us: 40px → 26px */
+    .title {
+        font-size: 26px;
+        padding: 36px 0 18px 0;
+        letter-spacing: 1px;
+    }
+
+    /* About Us mobile: ảnh trên - text dưới
+       Đảo order: ảnh = order-1, content = order-2 */
     .about-img {
-        display: none;
+        order: 1 !important;
+        text-align: center;
+        display: block;         /* bỏ display:none của rule cũ */
+        margin-bottom: 20px;
+    }
+    .about-content {
+        order: 2 !important;
+        text-align: center;
+    }
+    .about-content h3 {
+        font-size: 20px;
+    }
+    .about-content p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .about-content button {
+        margin-bottom: 24px;
+    }
+
+    /* Service: 1 cột xếp dọc */
+    .about-service .col-xl-4 {
+        margin-bottom: 28px;
+    }
+    .service_icon {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .service_icon i {
+        font-size: 34px;
+    }
+    .service_content {
+        text-align: center;
+    }
+    .service_content h4 {
+        font-size: 17px;
+        letter-spacing: 1px;
+    }
+    .service_content p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    /* Stagger delay tắt trên mobile để tránh chờ lâu */
+    .service-delay-2,
+    .service-delay-3 {
+        transition-delay: 0s;
     }
 }
